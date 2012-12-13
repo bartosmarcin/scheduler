@@ -62,13 +62,22 @@ public class PriorityQueueTest {
     }
     
     /**
-     * Test of add method, of class PriorityQueue.
+     * Test of remove method, of class PriorityQueue.
      */
     @Test(expected=java.util.NoSuchElementException.class)
     public void testRemoveFromEmptyQueue() {
         q.remove();
-    }
-
+    }    
+    
+    @Test
+    public void testRemoveReturnsTheGratest() {
+        System.out.println("remove- is highest priority returned first?");        
+        int[] priorities = {0,4,6,33,56,92,67,492,999,9,5,3};
+        for(int priority : priorities)
+            q.add(priority);
+        assertEquals(999, (int)q.remove());
+    }    
+    
     /**
      * Test of getTop method, of class PriorityQueue.
      */
