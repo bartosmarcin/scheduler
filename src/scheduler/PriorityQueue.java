@@ -51,5 +51,9 @@ public class PriorityQueue <T extends Comparable>{
         heap = new Object[temp.length << 1];
         System.arraycopy(temp, 0, heap, 0, temp.length);
     }
+    
+    public T getTop(){
+        return (T)heap[0];
+    }
 
 } 
