@@ -55,5 +55,9 @@ public class PriorityQueue <T extends Comparable>{
     public T getTop(){
         return (T)heap[0];
     }
+    
+    public int getSize(){
+        return size;
+    }
 
 } 
