@@ -29,12 +29,12 @@ public class PriorityQueue <T extends Comparable>{
         size++;
     }
     
-    public void pushUp(int index, T node){
+    private void pushUp(int index, T node){
         int parentIndex;
         while( index > 0)
         {
             parentIndex = getParentIndex(index);
-            if( node.compareTo( heap[parentIndex] ) >= 0 )
+            if( node.compareTo( heap[parentIndex] ) <= 0 )
                 break;
             heap[index] = heap[parentIndex];
             index = parentIndex;
