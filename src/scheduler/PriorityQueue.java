@@ -7,14 +7,14 @@ package scheduler;
  */ 
 public class PriorityQueue <T extends Comparable>{ 
     
-    private Object[] heap;
+    private Comparable[] heap;
     private int size;
     
     public PriorityQueue(int initLength){
         size = 0;
         if( initLength < 1)
             initLength = 1;
-        heap = new Object[initLength];
+        heap = new Comparable[initLength];
     }
     
     public void add(T newNode){
@@ -48,8 +48,11 @@ public class PriorityQueue <T extends Comparable>{
     
     private void enlargeHeap(){
         Object[] temp = heap;
-        heap = new Object[temp.length << 1];
+        heap = new Comparable[temp.length << 1];
         System.arraycopy(temp, 0, heap, 0, temp.length);
     }
-
+    
+    public Comparable getTop(){
+        return heap[0];
+    }
 } 
