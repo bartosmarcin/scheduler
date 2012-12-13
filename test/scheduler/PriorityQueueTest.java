@@ -39,19 +39,34 @@ public class PriorityQueueTest {
      * Test of add method, of class PriorityQueue.
      */
     @Test
-    public void testAdd() {
-        System.out.println("add");        
-        q.add(0);
-        assertSame(q.getTop(), 0);
-        q.add(1);
-        assertSame(q.getTop(), 1);
-        q.add(-1);
-        assertSame(q.getTop(), 1);
+    public void testAddStoresGreatestAtTop() {
+        System.out.println("add- is highest priority on top?");        
+        int[] priorities = {0,4,6,33,56,92,67,492,999,9,5,3};
+        for(int priority : priorities)
+            q.add(priority);
+        assertEquals(999, (int)q.getTop());
+    }
+    
+    @Test
+    public void testAddIncrementsSize() {
+        System.out.println("add- does increment size?");        
+        int[] priorities = {0,4,6,33,56,92,67,492,999,9,5,3};
+        for(int priority : priorities)
+            q.add(priority);
+        assertEquals(12, q.getSize());
     }
     
     @Test(expected=java.lang.IllegalArgumentException.class)
     public void testAddNullArgument() {        
             q.add(null);
+    }
+    
+    /**
+     * Test of add method, of class PriorityQueue.
+     */
+    @Test(expected=java.util.NoSuchElementException.class)
+    public void testRemoveFromEmptyQueue() {
+        q.remove();
     }
 
     /**
